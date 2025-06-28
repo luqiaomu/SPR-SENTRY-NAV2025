@@ -1,0 +1,34 @@
+Duration:
+    10: 
+        pose: [0.5, 0.2, 1.0]
+        mode: ['singel-pose', 1]
+        level: [2, 'r']
+    40: 
+        pose: [0.5, 1.0, 1.0]
+        mode: ['singel-pose', 1]
+        level: [1, 'r']
+    55: 
+        pose: [[1.0, 1.5, 1.0],[-1.0, 1.5, 1.0]]
+        mode: ['singel-pose', 1]
+        level: [2, 'r']
+
+
+# SpecificDuration: 
+#     event2:
+#         10: [[0.5, 0.2, 1.0], ['singel-pose', 1], [1, 'r']]
+#         40: [[0.5, 1.0, 1.0], ['singel-pose', 1], [1, 'r']]
+#         55: [[[-1.7, 0.6, 1.0],[-1.7, -0.6, 1.0],[-0.6, -1.7, 1.0]], ['cruise', 3], [1, 'r']]
+Events: 
+    event1: 
+        pose: [0.5, 0.2, 1.0]
+        mode: ['singel-pose', 1]
+        level: [2, 'r']
+    # event2:  
+    #     pose: [0.5, 1.0, 1.0]
+    #     mode: ['singel-pose', 1]
+    #     level: [1, 'r']
+    event3: 
+        pose: [[-1.7, 0.6, 1.0],[-1.7, -0.6, 1.0],[-0.6, -1.7, 1.0]]
+        mode: ['cruise', 3]
+        level: [1, 'r']
+        delay: 10

@@ -1,0 +1,13 @@
+ros2 bag record   /red_standard_robot1/serial/gimbal_joint_state   /red_standard_robot1/livox/imu   /red_standard_robot1/livox/lidar
+
+ls
+
+ros2 bag play
+
+
+ros2 bag info rosbag2_2025_05_19-19_30_16
+
+ros2 bag play rosbag2_2025_05_19-19_30_16
+
+
+ros2 launch pb2025_nav_bringup rm_navigation_reality_launch.py world:=1630 slam:=False use_robot_state_pub:=True use_sim_time:=True

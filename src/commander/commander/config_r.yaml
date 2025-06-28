@@ -1,0 +1,68 @@
+Events:
+    '1': 
+        pose: [-0.65, -0.25, 0.0]
+        mode: ['singel-pose', 1]
+        level: [2, 'r']
+
+    '2': 
+        pose: [[0.3,-3.65,0.0],[2.75, -3.6, 0.0]]
+        mode: ['singel-pose', 1]
+        level: [2, 'r']
+
+    '3': 
+        pose: [[0.3,-3.65,0.0],[4.7, -3.3, 0.0]]
+        mode: ['singel-pose', 1]
+        level: [2, 'r']
+
+   
+
+
+
+# Events:
+#     '1': 
+#         pose: [-0.65, -0.25, 0.0]
+#         mode: ['singel-pose', 1]
+#         level: [2, 'r']
+
+#     '2': 
+#         pose: [[0.3,-3.65,0.0],[2.75, -3.6, 0.0]]
+#         mode: ['singel-pose', 1]
+#         level: [2, 'r']
+
+#     '3': 
+#         pose: [[0.95,5.2,0.0],[4.7, -3.3, 0.0]]
+#         mode: ['singel-pose', 1]
+#         level: [2, 'r']
+
+   
+ 
+# Events:
+#     '1': 
+#         pose: [0.0, 0.0, 0.0]
+#         mode: ['singel-pose', 1]
+#         level: [2, 'r']
+
+#     '2': 
+#         pose: [-3.67, -6.25, -1.57]
+#         mode: ['singel-pose', 1]
+#         level: [2, 'r']
+
+#     '3': 
+#         pose: [[5.18, 6.25, 0.0],[6.86, 6.49, 0.0]]
+#         mode: ['singel-pose', 1]
+#         level: [2, 'r']
+
+#     '4': 
+#         pose: [6.03, -4.05, 0.0]
+#         mode: ['singel-pose', 1]
+#         level: [2, 'r']
+
+#     '5': 
+#         pose: [[8.06, 6.35, -1.57],[4.23, 2.0, -2.0]]
+#         mode: ['singel-pose', 1]
+#         level: [2, 'r']
+
+#     '6': 
+#         pose: [[3.28, 6.7, 3.1],[-0.07, 6.7, 3.1],[0.03, 5.15, -1.57]]
+#         mode: ['singel-pose', 1]
+#         level: [2, 'r']

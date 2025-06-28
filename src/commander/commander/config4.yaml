@@ -1,0 +1,9 @@
+Duration:
+    30: 
+        pose: [5.0, 6.2, 1.0]
+        mode: ['singel-pose', 1]
+        level: [2, 'r']
+    90: 
+        pose: [0.0, 0.0, 1.0]
+        mode: ['singel-pose', 1]
+        level: [2, 'r']

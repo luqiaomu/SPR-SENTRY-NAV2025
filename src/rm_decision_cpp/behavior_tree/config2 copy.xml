@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4">
+  <BehaviorTree ID="config2">
+    <ReactiveSequence>
+      <RunOnce then_skip="true">
+        <Script code="arrive_home:=false"/>
+      </RunOnce>
+      <Topics2Blackboard target_armor_id="{target_armor_id}"
+                         tracking="{tracking}"
+                         projectile_allowance_17mm="{projectile_allowance_17mm}"
+                         enemy_outpost_hp="{enemy_outpost_hp}"
+                         my_base_hp="{my_base_hp}"
+                         my_outpost_hp="{my_outpost_hp}"
+                         armor_id="{armor_id}"
+                         target_position="{target_position}"
+                         enemy_base_hp="{enemy_base_hp}"
+                         hurt_type="{hurt_type}"
+                         stage_remain_time="{stage_remain_time}"
+                         game_progress="{game_progress}"
+                         current_hp="{current_hp}"/>
+      <ReactiveFallback _while="game_progress==4 &amp;&amp; current_hp&gt;0">
+        <IfThenElse _while="current_hp&lt;200 || projectile_allowance_17mm&lt;100">
+          <Nav2Pose name="get supply"
+                    goal="0.18,-6.85,0.0,0.0,0.0,0.0,0.0"/>
+          <Sleep msec="5000"/>
+        </IfThenElse>
+        <Sequence _while="stage_remain_time&gt;=300">
+          <Nav2Pose name="Go Position 2"
+                    goal="12.13,2.3,0.0,0.0,0.0,0.0,0.0"/>
+          <Script code="arrive_home=true"/>
+        </Sequence>
+        <Sequence _while="stage_remain_time&gt;=180 &amp;&amp; stage_remain_time&lt;300">
+          <Nav2Pose name="Go Position 1"
+                    goal="10.18,0.35,0.0,0.0,0.0,0.0,0.0"/>
+          <Script code="arrive_home=true"/>
+        </Sequence>
+        <Sequence _while="stage_remain_time&lt;=180">
+          <Nav2Pose name="Go Position 3"
+                    goal="12.48,-3.85,0.0,0.0,0.0,0.0,0.0"/>
+          <Script code="arrive_home=true"/>
+          <AntiAutoAim speed="0.5"
+                       msec="4"/>
+        </Sequence>
+        <IfThenElse _while="my_base_hp &lt;= 2000&#10;">
+          <Nav2Pose name="Go Position 5"
+                    goal="3.03,-3.85,0.0,0.0,0.0,0.0,0.0"/>
+        </IfThenElse>
+      </ReactiveFallback>
+    </ReactiveSequence>
+  </BehaviorTree>
+
+  <!-- Description of Node Models (used by Groot) -->
+  <TreeNodesModel>
+    <Action ID="AntiAutoAim">
+      <input_port name="speed"
+                  type="float"/>
+      <input_port name="msec"
+                  type="float"/>
+    </Action>
+    <Action ID="Nav2Pose">
+      <input_port name="goal"
+                  type="geometry_msgs::msg::PoseStamped_&lt;std::allocator&lt;void&gt; &gt;">goal send to navigator.</input_port>
+    </Action>
+    <Action ID="Topics2Blackboard">
+      <output_port name="target_armor_id"
+                   type="std::string"/>
+      <output_port name="tracking"
+                   type="bool"/>
+      <output_port name="projectile_allowance_17mm"
+                   type="unsigned short"/>
+      <output_port name="enemy_outpost_hp"
+                   type="unsigned short"/>
+      <output_port name="my_base_hp"
+                   type="unsigned short"/>
+      <output_port name="my_outpost_hp"
+                   type="unsigned short"/>
+      <output_port name="armor_id"
+                   type="unsigned char"/>
+      <output_port name="target_position"
+                   type="geometry_msgs::msg::PoseStamped_&lt;std::allocator&lt;void&gt; &gt;"/>
+      <output_port name="enemy_base_hp"
+                   type="unsigned short"/>
+      <output_port name="hurt_type"
+                   type="unsigned char"/>
+      <output_port name="stage_remain_time"
+                   type="unsigned short"/>
+      <output_port name="game_progress"
+                   type="unsigned char"/>
+      <output_port name="current_hp"
+                   type="unsigned short"/>
+    </Action>
+  </TreeNodesModel>
+
+</root>

@@ -1,0 +1,87 @@
+ros2 run nav2_map_server map_saver_cli -f test
+
+ros2 run tf2_tools view_frames 
+  ros2 run tf2_tools view_frames --ros-args -r __ns:=/red_standard_robot1
+
+ros2 run rqt_graph rqt_graph --ros-args -r __ns:=/red_standard_robot1
+ros2 run rqt_gui rqt_gui 
+
+
+
+ros2 run commander commander_UI
+
+pkill -9 ruby
+
+
+ros2 run rqt_tf_tree rqt_tf_tree --ros-args -r /tf:=tf -r /tf_static:=tf_static -r  __ns:=/red_standard_robot1
+
+
+ros2 run nav2_map_server map_saver_cli -f <YOUR_MAP_NAME>  --ros-args -r __ns:=/red_standard_robot1
+
+
+ros2 topic echo /red_standard_robot1/odometry
+
+
+
+ros2 launch pcd2pgm pcd2pgm_launch.py
+
+
+
+ros2 bag record   /red_standard_robot1/serial/gimbal_joint_state   /red_standard_robot1/livox/imu   /red_standard_robot1/livox/lidar
+
+
+
+
+
+
+
+
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+
+
+
+
+
+
+source install/setup.zsh
+
+ros2 bag record -o sentry_$(date +%Y%m%d_%H%M%S) \
+/red_standard_robot1/serial/gimbal_joint_state \
+/red_standard_robot1/livox/imu \
+/red_standard_robot1/livox/lidar \
+/
+--compression-mode file --compression-format zstd -d 30
+
+
+
+
+
+
+
+
+ros2 run commander controller_serial
+ros2 launch pb2025_nav_bringup rm_navigation_reality_launch.py world:=test slam:=False use_robot_state_pub:=True
+
+
+
+
+
+ros2 launch pb2025_nav_bringup rm_navigation_reality_launch.py \
+slam:=True \
+use_robot_state_pub:=False
+
+source install/setup.bash
+
+ros2 launch pb2025_nav_bringup rm_navigation_reality_launch.py \
+slam:=True \
+use_robot_state_pub:=True
+
+ros2 run nav2_map_server map_saver_cli -f test
+
+
+
+ros2 launch pb2025_nav_bringup rm_navigation_reality_launch.py \
+world:=test \
+slam:=False \
+use_robot_state_pub:=True
+

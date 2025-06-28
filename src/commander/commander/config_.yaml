@@ -1,0 +1,25 @@
+Events:
+    '1': 
+        pose: [0.0, 0.0, 0.0]
+        mode: ['singel-pose', 1]
+        level: [2, 'r']
+
+    '2': 
+        pose: [-3.45, -6.0, -1.57]
+        mode: ['singel-pose', 1]
+        level: [2, 'r']
+
+    '3': 
+        pose: [5.49, 6.11, 0.0]
+        mode: ['singel-pose', 1]
+        level: [2, 'r']
+
+    '4': 
+        pose: [4.29, -4.04, 0.0]
+        mode: ['singel-pose', 1]
+        level: [2, 'r']
+
+    '5': 
+        pose: [4.84, 2.3, -2.0]
+        mode: ['singel-pose', 1]
+        level: [2, 'r']
